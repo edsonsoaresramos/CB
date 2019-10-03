@@ -1,0 +1,55 @@
+Buongiorno, come stai?
+Sto andando bene, e tu?
+Anche io sto bene.
+È bello sentirlo.
+Sì.
+Ciao
+Ciao
+Come te la passi?
+Sto bene
+È una buona notizia
+Sì
+Posso aiutarti con qualcosa?
+Sì, ho una domanda
+Qual è la tua domanda?
+Potrei prendere in prestito una tazza di zucchero?
+Mi dispiace, ma non ne ho
+Grazie lo stesso
+Nessun problema
+Come te la passi?
+Sto andando bene, e tu?
+Anche io sto bene
+Quello è buono
+Hai sentito la notizia?
+Che buone notizie?
+La Roma ha vinto!
+Qual è il tuo libro preferito?
+Non so leggere.
+Allora, qual è il tuo colore preferito?
+Blu
+Tu chi sei?
+Sto lavorando a un progetto
+Su cosa stai lavorando?
+Un applicativo chiamato Easy
+Sembra interessante
+In realtà sì, difficile però
+Parlami di te.
+Cosa vuoi sapere?
+Sei un robot?
+Sì, lo sono
+Com'è?
+Che cosa vuoi sapere?
+Come lavori?
+È complicato.
+Lo sai tutto?
+No, solo so che non so nulla
+Sono d'accordo.
+Sei un programmatore?
+Certo che sono un programmatore.
+Lo sono davvero.
+Quali lingue ti piace usare?
+Uso Python e Java abbastanza spesso.
+Uso Python soltanto a casa per progetti privati
+Non sono incredibilmente affezionato a Java
+Di dove sei?
+Sono di Roma
