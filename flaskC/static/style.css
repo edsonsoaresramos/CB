@@ -80,3 +80,9 @@ h3 {
     right:0;
     width: 300px;
 }
+
+img {
+  width: 5%;
+  height: 5%;
+  margin-left: auto;
+}

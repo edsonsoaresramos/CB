@@ -8,12 +8,17 @@
     <h1>Reply ChatBot</h1>
     <h3>Implementazione di un ChatBot</a> utilizzando Flask-chatterbot.</h3>
     <div>
-      <div id="chatbox">
-        <p class="botText"><span>Ciao, sono Reply ChatBot.</span></p>
-      </div>
+      {% block txtInput %}
+        <div id="chatbox">
+          <p class="botText"><span>Ciao, sono Reply ChatBot.</span></p>
+        </div>
+      {% endblock %}
       <div id="userInput">
-        <input id="textInput" type="text" name="msg" placeholder="Message">
+        <input id="textInput" type="text" name="msg" placeholder="Message" value="{{msg}}">
         <input id="buttonInput" type="submit" value="Send">
+        <a id="popup" href="#">
+          <img src="/static/microfono2.png"/>
+        </a>
       </div>
       <script>
         function getBotResponse() {
@@ -28,6 +33,16 @@
             document.getElementById('userInput').scrollIntoView({block: 'start', behavior: 'smooth'});
           });
         }
+        function getResponseSpeechRecognition() {
+            $.get("/popupTk").done(function(data) {
+              var data_ = data.split(";");
+              var userHtml_ = '<p class="userText"><span>' + data_[0] + '</span></p>';
+              $("#chatbox").append(userHtml_);
+              var botHtml = '<p class="botText"><span>' + data_[1] + '</span></p>';
+              $("#chatbox").append(botHtml);
+              document.getElementById('userInput').scrollIntoView({block: 'start', behavior: 'smooth'});
+            });
+        }
         $("#textInput").keypress(function(e) {
             if(e.which == 13) {
                 getBotResponse();
@@ -35,7 +50,10 @@
         });
         $("#buttonInput").click(function() {
           getBotResponse();
-        })
+        });
+        $("#popup").click(function() {
+          getResponseSpeechRecognition()
+        });
       </script>
     </div>
   </body>
