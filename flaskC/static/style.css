@@ -33,17 +33,23 @@ h3 {
 }
 
 #textInput {
-    width: 87%;
+    width: 70%;
     border: none;
     border-bottom: 3px solid #009688;
     font-family: monospace;
     font-size: 17px;
+    float: left;
+    margin-right: 10px;
+    margin-top: 10px;
 }
 
 #buttonInput {
     padding: 3px;
     font-family: monospace;
     font-size: 17px;
+    float: left;
+    margin-right: 10px;
+    margin-top: 8px;
 }
 
 .userText {
