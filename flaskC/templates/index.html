@@ -6,18 +6,18 @@
   </head>
   <body>
     <h1>Reply ChatBot</h1>
-    <h3>Implementazione di un ChatBot</a> utilizzando Flask-chatterbot.</h3>
+    <h3>Implementazione di un ChatBot</a> utilizzando Flask-chatterbot. Supporto anche al Riconoscimento Vocale</h3>
     <div>
       {% block txtInput %}
         <div id="chatbox">
-          <p class="botText"><span>Ciao, sono Reply ChatBot.</span></p>
+          <p class="botText"><span>Ciao, sono Reply ChatBot. Può scrivere oppure cliccare sull'icona del microfono per parlare</span></p>
         </div>
       {% endblock %}
       <div id="userInput">
         <input id="textInput" type="text" name="msg" placeholder="Message" value="{{msg}}">
         <input id="buttonInput" type="submit" value="Send">
         <a id="popup" href="#">
-          <img src="/static/microfono2.png"/>
+          <img src="/static/microfono3.png" alt="Clicca e dì qualcosa" title="Clicca e dì qualcosa"/>
         </a>
       </div>
       <script>
@@ -38,6 +38,7 @@
               var data_ = data.split(";");
               var userHtml_ = '<p class="userText"><span>' + data_[0] + '</span></p>';
               $("#chatbox").append(userHtml_);
+              document.getElementById('userInput').scrollIntoView({block: 'start', behavior: 'smooth'});
               var botHtml = '<p class="botText"><span>' + data_[1] + '</span></p>';
               $("#chatbox").append(botHtml);
               document.getElementById('userInput').scrollIntoView({block: 'start', behavior: 'smooth'});
