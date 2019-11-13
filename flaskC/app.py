@@ -57,19 +57,19 @@ def openPopup():
     userText = popup()
     idiom = request.args.get('optIdiom');
     if idiom == 'Spagnolo':
-        trainer = ChatterBotCorpusTrainer(spanish_bot)
+        trainer = ChatterBotCorpusTrainer(chat_bot_storage)
         trainer.train("chatterbot.corpus.spanish")
-        return userText + ";" + str(spanish_bot.get_response(userText))
+        return userText + ";" + str(chat_bot_storage.get_response(userText))
     elif idiom == 'Portoghese':
-        trainer = ChatterBotCorpusTrainer(portoghese_bot)
+        trainer = ChatterBotCorpusTrainer(chat_bot_storage)
         trainer.train("chatterbot.corpus.portuguese")
-        return userText + ";" + str(portoghese_bot.get_response(userText))
+        return userText + ";" + str(chat_bot_storage.get_response(userText))
     elif idiom == 'Inglese':
-        trainer = ChatterBotCorpusTrainer(english_bot)
+        trainer = ChatterBotCorpusTrainer(chat_bot_storage)
         trainer.train("chatterbot.corpus.english")
-        return userText + ";" + str(english_bot.get_response(userText))
+        return userText + ";" + str(chat_bot_storage.get_response(userText))
     else:
-        return userText + ";" + str(italian_bot.get_response(userText))
+        return userText + ";" + str(chat_bot_storage.get_response(userText))
 
 if __name__ == "__main__":
     app.run()
