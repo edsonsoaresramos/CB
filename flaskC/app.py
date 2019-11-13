@@ -11,12 +11,9 @@ app.secret_key = b'\x0f~\xcfK\x08XML\x8f!\xb5\x05?\x1a9yE\x18"L\xf2\x08\x84o'
 
 idioms = ""
 
-italian_bot = ChatBot("Chatterbot", storage_adapter="chatterbot.storage.SQLStorageAdapter")
-spanish_bot = ChatBot("Chatterbot", storage_adapter="chatterbot.storage.SQLStorageAdapter")
-english_bot = ChatBot("Chatterbot", storage_adapter="chatterbot.storage.SQLStorageAdapter")
-portoghese_bot = ChatBot("Chatterbot", storage_adapter="chatterbot.storage.SQLStorageAdapter")
+chat_bot_storage = ChatBot("Chatterbot", storage_adapter="chatterbot.storage.SQLStorageAdapter")
 
-trainer = ChatterBotCorpusTrainer(italian_bot)
+trainer = ChatterBotCorpusTrainer(chat_bot_storage)
 trainer.train("chatterbot.corpus.italian")
 
 def startIdiomCombo():
@@ -34,19 +31,19 @@ def get_bot_response():
     userText = request.args.get('msg')
     idiom = request.args.get('optIdiom');
     if idiom == 'Spagnolo':
-        trainer = ChatterBotCorpusTrainer(spanish_bot)
+        trainer = ChatterBotCorpusTrainer(chat_bot_storage)
         trainer.train("chatterbot.corpus.spanish")
-        return str(spanish_bot.get_response(userText))
+        return str(chat_bot_storage.get_response(userText))
     elif idiom == 'Portoghese':
-        trainer = ChatterBotCorpusTrainer(portoghese_bot)
+        trainer = ChatterBotCorpusTrainer(chat_bot_storage)
         trainer.train("chatterbot.corpus.portuguese")
-        return str(portoghese_bot.get_response(userText))
+        return str(chat_bot_storage.get_response(userText))
     elif idiom == 'Inglese':
-        trainer = ChatterBotCorpusTrainer(english_bot)
+        trainer = ChatterBotCorpusTrainer(chat_bot_storage)
         trainer.train("chatterbot.corpus.english")
-        return str(english_bot.get_response(userText))
+        return str(chat_bot_storage.get_response(userText))
     else:
-        return str(italian_bot.get_response(userText))
+        return str(chat_bot_storage.get_response(userText))
 
 def popup():
     root = Tk()
