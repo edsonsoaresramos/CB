@@ -7,10 +7,19 @@
   <body>
     <h1>Reply ChatBot</h1>
     <h3>Implementazione di un ChatBot</a> utilizzando Flask-chatterbot. Supporto anche al Riconoscimento Vocale</h3>
+    <div id="combo">
+      <h2>Scegli la lingua:</h2>
+      <select name="optIdiom" id="optIdiom">
+        <option value="Italiano" SELECTED>Italiano</option>
+        {% for idiom in idioms %}
+          <option value="{{ idiom }}">{{ idiom }}</option>
+        {% endfor %}
+      </select>
+    </div>
     <div>
       {% block txtInput %}
         <div id="chatbox">
-          <p class="botText"><span>Ciao, sono Reply ChatBot. Può scrivere oppure cliccare sull'icona del microfono per parlare</span></p>
+          <p class="botText"><span>Ciao, sono Reply ChatBot. Può scrivere oppure cliccare sull'icona del microfono per chattare</span></p>
         </div>
       {% endblock %}
       <div id="userInput">
@@ -23,18 +32,20 @@
       <script>
         function getBotResponse() {
           var rawText = $("#textInput").val();
+          var rawIdiom = $("#optIdiom").val();
           var userHtml = '<p class="userText"><span>' + rawText + '</span></p>';
           $("#textInput").val("");
           $("#chatbox").append(userHtml);
           document.getElementById('userInput').scrollIntoView({block: 'start', behavior: 'smooth'});
-          $.get("/get", { msg: rawText }).done(function(data) {
+          $.get("/get", { msg: rawText, optIdiom: rawIdiom }).done(function(data) {
             var botHtml = '<p class="botText"><span>' + data + '</span></p>';
             $("#chatbox").append(botHtml);
             document.getElementById('userInput').scrollIntoView({block: 'start', behavior: 'smooth'});
           });
         }
         function getResponseSpeechRecognition() {
-            $.get("/popupTk").done(function(data) {
+            var rawIdiom = $("#optIdiom").val();
+            $.get("/popupTk", { optIdiom: rawIdiom }).done(function(data) {
               var data_ = data.split(";");
               var userHtml_ = '<p class="userText"><span>' + data_[0] + '</span></p>';
               $("#chatbox").append(userHtml_);
